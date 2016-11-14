@@ -1,0 +1,4 @@
+#nombre;unidad_potencia;
+#campo;tipo;es_clave
+cod_unidad_potencia;varchar(1);#
+unidad_potencia;varchar(20);

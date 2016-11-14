@@ -1,0 +1,55 @@
+id_documento;int;tbn1_dim_documentos(id_documento);tbn1_documentos(id_documento);#;documentos
+id_expediente;int;tbn1_dim_expedientes(id_expediente);tbn1_expedientes(id_expediente);;documentos
+id_mae_no_id_declarante;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarantes
+id_mae_no_id_declarado;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarados
+ejercicio;smallint;;;;periodos
+modelo ;varchar(3)   ;;;;datos_caratula
+es_externo;bit;;;;marcas
+nif_declarante_192;varchar(12);;;;declarantes
+nif_declarante_no_identificado  ;varchar(12);;;;declarantes
+es_contribuyente_declarante;bit;;;;marcas
+id_contribuyente_declarante;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarantes
+es_identificado_declarante;bit;;;;marcas
+sw_identificado_declarante  ;varchar(1)  ;;;;marcas
+telefono;varchar(10);;;;declarantes
+razon_social;varchar(40);;;;declarantes
+cod_presentador_colectivo;int;;;;declarantes
+delegacion_hacienda;varchar(2);;;;datos_caratula
+id_tipo_presentacion;int;tbn1_dim_mi_tipo_presentacion(id_tipo_presentacion);tbn1_mi_tipo_presentacion(id_tipo_presentacion);;datos_caratula
+id_administracion;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_caratula
+volumen_operaciones;decimal(18,2);;;;F
+es_representante;varchar(1);;;;declarados
+cod_valor;varchar(12);;;;declarados
+id_clave_origen;int;tbn1_dim_mi_clave_origen(id_clave_origen);tbn1_mi_clave_origen(id_clave_origen);;datos_detalle
+id_clave_operacion;int;tbn1_mi_mae_claves_operacion_192(id_clave_operacion_192);;;datos_detalle
+id_clave_traspaso;int;tbn1_mi_mae_claves_traspaso(id_clave_traspaso);tbn1_mi_claves_traspaso(id_clave_traspaso);;datos_detalle
+id_clave_declarado;int;tbn1_dim_mi_clave_declarado(id_clave_declarado);tbn1_mi_clave_declarado(id_clave_declarado);;datos_detalle
+secuencia ;varchar(11);;;#;declarados
+nif_declarado_192;varchar(12);;;;declarados
+nif_declarado_no_identificado  ;varchar(12);;;;declarados
+es_contribuyente_declarado;bit;;;;marcas
+id_contribuyente_declarado  ;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarados
+es_identificado_declarado;bit;;;;marcas
+sw_identificado_declarado   ;varchar(1);;;;marcas
+es_erroneo_declarante;bit;;;;marcas
+id_provincia;int;tbn1_dim_provincias(id_provincia);tbn1_provincias(id_provincia);;datos_detalle
+id_pais;int;tbn1_dim_paises(id_pais);tbn1_paises(id_pais);;datos_detalle
+es_historico;bit;;;;marcas
+fecha_presentacion;date;;;;periodos
+mes_presentacion;int;;;;periodos
+anyo_presentacion;int ;;;;periodos
+porc_participacion;decimal(7, 2);;;;F
+num_participes;decimal(3, 0);;;;F
+importe_transmision;decimal(18, 2);;;;F
+fecha_transmision;date;;;;periodos
+mes_transmision;int;;;;periodos
+anyo_transmision;int ;;;;periodos
+id_clave_residencia;int;tbn1_mae_claves_residencia(id_clave_residencia);tbn1_claves_residencia(id_clave_residencia);;datos_detalle
+id_clave_declarante;int;tbn1_mae_claves_declarante(id_clave_declarante);tbn1_claves_declarante(id_clave_declarante);;datos_detalle
+id_tipo_operacion_192;int;tbn1_mi_mae_tipos_operacion_192(id_tipo_operacion_192);tbn1_mi_tipos_operacion_192(id_tipo_operacion_192);;datos_detalle
+importe_adquisicion;decimal(18, 2);;;;F
+fecha_adquisicion;date;;;;periodos
+mes_adquisicion;int;;;;periodos
+anyo_adquisicion;int ;;;;periodos
+es_erroneo_declarado;bit;;;;marcas
+id_tipo_declaracion;int;tbn1_dim_mi_tipo_declaracion(id_tipo_declaracion);tbn1_mi_tipo_declaracion(id_tipo_declaracion);;datos_caratula

@@ -1,0 +1,31 @@
+PARA DS-DM:
+
+---------------------------------------------------------------
+------------------------------MI-------------------------------
+---------------------------------------------------------------
+
+dm.bat mi_ds_170_tarjetas_credito_debito mi_170 (necesitará renombrar objetos a mano por ser modelo antiguo)
+
+dm.bat mi_ds_171_imposiciones_disposiciones_cobros_fondos mi_171 (necesitará renombrar objetos a mano por ser modelo antiguo)
+
+dm.bat mi_ds_181_prestamos_bienes_inmuebles mi_181
+
+dm_null.bat mi_ds_184_irfp_sociedades_irnr mi_184
+
+dm.bat mi_ds_189_valores_seguros_y_rentas mi_189 (necesitará renombrar objetos a mano por ser modelo antiguo)
+
+dm.bat mi_ds_192_operaciones_letras_tesoro mi_192
+
+dm.bat mi_ds_199_operaciones_entidades_credito_cheques mi_199
+
+dm.bat mi_ds_270_gravamen_premios_y_loterias mi_270
+
+dm.bat mi_ds_296_renta_no_residentes_sin_establecimiento_permanente mi_296
+
+dm.bat mi_ds_346_subvenciones_indemnizaciones_agricultores_ganaderos mi_346
+
+dm.bat mi_ds_720_bienes_derechos_extranjero mi_720
+
+dm.bat mi_ds_781_cuentas_vivienda mi_781
+
+dm.bat mi_ds_848_volumen_operaciones_IAE mi_848

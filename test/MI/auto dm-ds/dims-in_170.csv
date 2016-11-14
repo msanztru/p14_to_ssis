@@ -1,0 +1,50 @@
+id_documento;int;tbn1_dim_documentos(id_documento);tbn1_documentos(id_documento);#;documentos
+id_expediente;int;tbn1_dim_expedientes(id_expediente);tbn1_expedientes(id_expediente);;documentos
+id_mae_no_id_declarante;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarantes
+id_mae_no_id_declarado;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarados
+ejercicio;smallint;;;;periodos
+modelo ;varchar(3);;;;datos_caratula
+administracion_declarante;varchar(1);;;;datos_caratula
+es_externo_declarante;bit;;;;marcas
+nif_declarante_170;varchar(12);;;;declarantes
+nif_declarante_no_identificado  ;varchar(12);;;;declarantes
+es_contribuyente_declarante;bit;;;;marcas
+id_contribuyente_declarante;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarantes
+es_identificado_declarante;bit;;;;marcas
+sw_identificado_declarante  ;varchar(1);;;;marcas
+telefono;varchar(10);;;;declarantes
+razon_social;varchar(40);;;;declarantes
+cod_presentador_colectivo;int;;;;declarantes
+cod_banco_espania;varchar(4);;;;datos_caratula
+id_tipo_presentacion;int;tbn1_dim_mi_tipo_presentacion(id_tipo_presentacion);tbn1_mi_tipo_presentacion(id_tipo_presentacion);;datos_caratula
+fecha_presentacion;date;;;;periodos
+mes_presentacion;int;;;;periodos
+anyo_presentacion ;int;;;;periodos
+num_caja;varchar(8);;;;No
+fecha_alta;date;;;;periodos
+mes_alta;int;;;;periodos
+anyo_alta;int;;;;periodos
+num_justificante;numeric(13);;;;No
+id_tipo_declaracion;int;tbn1_dim_mi_tipo_declaracion(id_tipo_declaracion);tbn1_mi_tipo_declaracion(id_tipo_declaracion);;datos_caratula
+contador_revisiones;int;;;;No
+regimen_fiscal_deducciones;varchar(1);;;;datos_caratula
+administracion_declarado;varchar(1);;;;datos_detalle
+es_externo_declarado;bit;;;;marcas
+nif_declarado_170;varchar(12);;;;declarados
+nif_declarado_no_identificado  ;varchar(12);;;;declarados
+secuencia ;varchar(9);;;#;declarados
+es_contribuyente_declarado;bit;;;;marcas
+id_contribuyente_declarado  ;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarados
+es_identificado_declarado;bit;;;;marcas
+sw_identificado_declarado   ;varchar(1);;;;marcas
+es_erroneo_declarado;bit;;;;marcas
+id_tipo_hoja ;int;tbn1_dim_mi_tipo_hoja(id_tipo_hoja);tbn1_MI_tipo_hoja(id_tipo_hoja);;datos_detalle
+id_clave_tipo_codigo;int;tbn1_dim_mi_clave_tipo_codigo(id_clave_tipo_codigo);tbn1_MI_clave_tipo_codigo(id_clave_tipo_codigo);;datos_detalle
+codigo_iban;varchar(4);;;;declarados
+codigo_entidad;varchar(4);;;;declarados
+codigo_sucursal   ;varchar(4);;;;declarados
+digito_control    ;varchar(2);;;;declarados
+codigo_cuenta;varchar(10);;;;declarados
+num_comercio;varchar(10);;;;comercios
+id_tipo_importe;int;tbn1_dim_mi_tipo_importe(id_tipo_importe);tbn1_mi_tipo_importe(id_tipo_importe);#;datos_detalle
+importe;numeric(18,2);;;    ;F

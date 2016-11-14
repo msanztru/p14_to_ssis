@@ -1,0 +1,4 @@
+#nombre;tipo_domicilio;
+#campo;tipo;es_clave
+cod_tipo_domicilio;varchar(1);#
+tipo_domicilio;varchar(50);

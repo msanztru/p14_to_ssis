@@ -1,0 +1,4 @@
+#nombre;tipo_importe;
+#campo;tipo;es_clave
+cod_tipo_importe;varchar(2);#
+tipo_importe;varchar(50);

@@ -1,0 +1,4 @@
+#nombre;tipo_lectura;
+#campo;tipo;es_clave
+cod_tipo_lectura;varchar(1);#
+tipo_lectura;varchar(50);

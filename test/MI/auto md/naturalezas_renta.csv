@@ -1,0 +1,2 @@
+cod_naturaleza_renta;varchar(1);#
+naturaleza_renta;varchar(40);

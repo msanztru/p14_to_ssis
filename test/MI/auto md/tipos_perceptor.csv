@@ -1,0 +1,2 @@
+cod_tipo_perceptor;varchar(1);#
+tipo_perceptor;varchar(200);

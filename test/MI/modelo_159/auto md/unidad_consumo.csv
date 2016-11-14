@@ -1,0 +1,4 @@
+#nombre;unidad_consumo;
+#campo;tipo;es_clave
+cod_unidad_consumo;varchar(1);#
+unidad_consumo;varchar(20);

@@ -1,0 +1,2 @@
+cod_clave_actividad_ppal_mf;varchar(1);#
+clave_actividad_ppal_mf;varchar(100);

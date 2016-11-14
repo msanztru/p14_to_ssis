@@ -1,0 +1,45 @@
+PARA MAESTROS:
+
+---------------------------------------------------------------
+------------------------------MI-------------------------------
+---------------------------------------------------------------
+
+md.bat entidades_bancarias.csv
+md.bat no_identificados.csv
+
+
+----------------------------MODELO 184----------------------------
+
+--cabecera
+md.bat claves_actividad_ppal_mf.csv claves_actividad_ppal_mf
+
+md.bat claves_tipos_entidad_mf.csv claves_tipos_entidad_mf
+
+--detalle
+md.bat claves_participe_184.CSV claves_participe_184
+
+md.bat claves_184.CSV claves_184
+
+md.bat subclaves_184.CSV subclaves_184
+
+----------------------------MODELO 159----------------------------
+
+md.bat tipo_bien.csv
+
+md.bat situacion_inmueble.csv
+
+md.bat unidad_consumo.csv
+
+md.bat unidad_potencia.csv
+
+md.bat tipo_importe.csv
+
+md.bat tipo_lectura.csv
+
+md.bat tipo_domicilio.csv
+
+md.bat domicilios_159.csv
+
+----------------------------MODELO 193----------------------------
+
+md.bat clave_operacion_193.csv

@@ -1,0 +1,80 @@
+id_documento;int;tbn1_dim_documentos(id_documento);tbn1_documentos(id_documento);#;documentos
+id_expediente;int;tbn1_dim_expedientes(id_expediente);tbn1_expedientes(id_expediente);;documentos
+ejercicio;smallint;;;;periodos
+modelo;varchar(3);;;;datos_caratula
+id_administracion_declarante;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_caratula
+es_externo_declarante;bit;;;;marcas_declarante
+nif_declarante_184_11;varchar(11);;;;No
+nif_declarante_no_identificado_11;varchar(11);;;;No
+nif_declarante_184;varchar(12);;;;declarantes
+nif_declarante_no_identificado;varchar(12);;;;declarantes
+es_contribuyente_declarante;bit;;;;marcas_declarante
+id_contribuyente_declarante;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarantes
+es_identificado_declarante;bit;;;;marcas_declarante
+sw_identificado_declarante;varchar(1);;;;marcas_declarante
+id_mae_no_id_declarante;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarantes
+telefono;varchar(10);;;;declarantes
+persona_relacionarse;varchar(40);;;;declarantes
+cod_presentador_colectivo;int;;;;declarantes
+id_mae_entidades_bancarias;int;tbn1_mae_entidades_bancarias(id_mae_entidades_bancarias);;;datos_caratula
+id_tipo_presentacion;int;tbn1_dim_mi_tipo_presentacion(id_tipo_presentacion);tbn1_mi_tipo_presentacion(id_tipo_presentacion);;datos_caratula
+fecha_presentacion;date;;;;periodos
+mes_presentacion;int;;;;periodos
+anyo_presentacion;int;;;;periodos
+num_caja;varchar(8);;;;No
+fecha_alta;date;;;;periodos
+mes_alta;int;;;;periodos
+anyo_alta;int;;;;periodos
+num_justificante;decimal(13,0);;;;No
+id_tipo_declaracion;int;tbn1_dim_mi_tipo_declaracion(id_tipo_declaracion);tbn1_mi_tipo_declaracion(id_tipo_declaracion);;datos_caratula
+num_justificante_sustitutiva;decimal(13,0);;;;No
+contador_revisiones;decimal(2,0);;;;No
+regimen_fiscal_deducciones;varchar(1);;;;datos_caratula
+pendiente_baja;varchar(1);;;;No
+num_declarados;decimal(15, 0);;;;No
+id_mae_claves_tipos_entidad;int;tbn1_mae_claves_tipos_entidad_mf(id_mae_claves_tipos_entidad_mf);;;declarantes_2
+id_mae_claves_actividad_ppal;int;tbn1_mae_claves_actividad_ppal_mf(id_mae_claves_actividad_ppal_mf);;;declarantes_2
+id_mae_claves_tipos_entidad_extranjero;int;tbn1_mae_claves_tipos_entidad_mf(id_mae_claves_tipos_entidad_mf);;;declarantes_2
+es_objeto_extranjero;varchar (1);;;;marcas_declarante
+id_pais_extranjero;int;tbn1_dim_paises(id_pais);tbn1_paises(id_pais);;declarantes_2
+renta_residentes_extranjero;decimal (8, 2);;;;declarantes_2
+es_regimen_impuesto_soc_extranjero;bit;;;;marcas_declarante
+cif_representante;varchar (9);;;;declarantes_2
+nombre_representante;varchar (40);;;;declarantes_2
+volumen_operaciones;decimal (18, 2);;;;F
+id_administracion_declarado;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_detalle
+es_externo_declarado;bit;;;;marcas_declarado
+secuencia;int;;;#;declarados
+nif_declarado_184_11;varchar(11);;;;No
+nif_declarado_no_identificado_11;varchar(11);;;;No
+nif_declarado_184;varchar(12);;;;declarados
+nif_declarado_no_identificado;varchar(12);;;;declarados
+es_contribuyente_declarado;bit;;;;marcas_declarado
+id_contribuyente_declarado;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarados
+es_identificado_declarado;bit;;;;marcas_declarado
+sw_identificado_declarado;varchar(1);;;;marcas_declarado
+id_mae_no_id_declarado;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarados
+es_representante;varchar(1);;;;marcas_declarado
+id_provincia;int;tbn1_dim_provincias(id_provincia);tbn1_provincias(id_provincia);;datos_detalle
+id_pais;int;tbn1_dim_paises(id_pais);tbn1_paises(id_pais);;datos_detalle
+id_mae_claves_participe_184;int;tbn1_mae_claves_participe_184(id_mae_claves_participe_184);;;marcas_declarado
+es_miembro_31_diciembre;bit;;;;marcas_declarado
+num_dias_miembro;decimal(3, 0);;;;F
+porcentaje_participacion;decimal(7, 4);;;;F
+domicilio_fiscal;varchar(40);;;;datos_detalle
+es_ejerce_actividad;bit;;;;marcas_declarado
+porcentaje_atribucion;decimal(7, 4);;;;F
+es_erroneo_declarado;varchar(1);;;;marcas_declarado
+id_mae_claves_184_declarante;int;tbn1_mae_claves_184(id_mae_claves_184);;#;datos_economicos_declarante
+id_mae_subclaves_184_declarante;int;tbn1_mae_subclaves_184(id_mae_subclaves_184);;#;datos_economicos_declarante
+campo_declarante;smallint;;;#;datos_economicos_declarante
+orden_declarante;smallint;;;#;datos_economicos_declarante
+valor_declarante;bigint;;;;F
+es_erroneo_dato_ec_declarante;varchar(1);;;;marcas_declarante
+id_mae_claves_184_declarado;int;tbn1_mae_claves_184(id_mae_claves_184);;#;datos_economicos_declarado
+id_mae_subclaves_184_declarado;int;tbn1_mae_subclaves_184(id_mae_subclaves_184);;#;datos_economicos_declarado
+campo_declarado;smallint;;;#;datos_economicos_declarado
+orden_declarado;smallint;;;#;datos_economicos_declarado
+valor_declarado;bigint;;;;F
+es_erroneo_dato_ec_declarado;varchar(1);;;;marcas_declarado
+contador_declarados;int;;;;F

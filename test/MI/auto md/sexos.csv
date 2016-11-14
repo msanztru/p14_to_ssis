@@ -1,0 +1,2 @@
+cod_sexo;varchar(1);#
+sexo;varchar(40);

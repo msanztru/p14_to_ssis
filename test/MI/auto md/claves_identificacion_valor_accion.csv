@@ -1,0 +1,2 @@
+cod_clave_identificacion_valor_accion;varchar(1);#
+clave_identificacion_valor_accion;varchar(80);

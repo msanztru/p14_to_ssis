@@ -1,0 +1,63 @@
+id_documento;int;tbn1_dim_documentos(id_documento);tbn1_documentos(id_documento);#;documentos
+id_expediente;int;tbn1_dim_expedientes(id_expediente);tbn1_expedientes(id_expediente);;documentos
+id_mae_no_id_declarante;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarantes
+id_mae_no_id_declarado;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarados
+ejercicio;smallint;;;;periodos
+modelo ;varchar(3);;;;datos_caratula
+id_administracion_declarante;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_caratula
+es_externo_declarante;bit;;;;marcas
+nif_declarante_181_11;varchar(11);;;;No
+nif_declarante_181;varchar(12);;;;declarantes
+es_contribuyente_declarante;bit;;;;marcas
+id_contribuyente_declarante;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarantes
+es_complementaria;varchar(1);;;;marcas
+es_sustitutiva;varchar(1);;;;marcas
+id_tipo_presentacion;int;tbn1_dim_mi_tipo_presentacion(id_tipo_presentacion);tbn1_mi_tipo_presentacion(id_tipo_presentacion);;datos_caratula
+telefono_contacto;varchar(9);;;;declarantes
+nombre_contacto;varchar(40);;;;declarantes
+numero_caja;varchar(8);;;;No
+contador_revisiones;decimal(1, 0);;;;No
+fecha_presentacion;date;;;;periodos
+mes_presentacion;int;;;;periodos
+anyo_presentacion ;int;;;;periodos
+es_rehabilitacion;varchar(1);;;;marcas
+secuencia;varchar(9);;;#;declarados
+id_administracion_declarado;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_detalle
+es_externo_declarado;bit;;;;marcas
+nif_declarado_181_11;varchar(11);;;;No
+nif_declarado_181;varchar(12);;;;declarados
+nif_declarado_no_identificado_11;varchar(11);;;;No
+nif_declarado_no_identificado;varchar(12);;;;declarados
+es_contribuyente_declarado;bit;;;;marcas
+id_contribuyente_declarado  ;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarados
+nivel_identificacion_nif_declarado;varchar(1);;;;declarados
+es_identificado_declarado;bit;;;;marcas
+sw_identificado_declarado   ;varchar(1);;;;marcas
+sw_representante ;varchar(1);;;;marcas
+id_provincia;int;tbn1_dim_provincias(id_provincia);tbn1_provincias(id_provincia);;datos_detalle
+numero_identificacion_prestamo;varchar(20);;;;datos_detalle
+fecha_operacion_prestamo;date;;;;periodos
+mes_operacion_prestamo;int;;;;periodos
+anyo_operacion_prestamo;int;;;;periodos
+duracion_operacion_meses;decimal(4, 0);;;;No
+importe_prestamo;decimal(18, 2);;;;F
+importe_amortizacion;decimal(18, 2);;;;F
+importe_intereses;decimal(18, 2);;;;F
+importe_gastos_amortizacion;decimal(18, 2);;;;F
+porcentaje_participacion;numeric(6, 3);;;;F
+importe_gastos_financiacion;decimal(18, 2);;;;F
+saldo_inicial_ejercicio;decimal(18, 2);;;;F
+saldo_final_ejercicio;decimal(18, 2);;;;F
+id_origen_operacion_181;int;tbn1_mi_mae_origen_operacion_181(id_origen_operacion_181);tbn1_mi_origen_operacion_181(id_origen_operacion_181);;datos_detalle
+id_clave_operacion_181;int;tbn1_mi_mae_clave_operacion_181(id_clave_operacion_181);tbn1_mi_clave_operacion_181(id_clave_operacion_181);;datos_detalle
+id_subclave_operacion_181;int;tbn1_mi_mae_subclave_operacion_181(id_subclave_operacion_181);tbn1_mi_subclave_operacion_181(id_subclave_operacion_181);;datos_detalle
+id_situacion_inmueble_181;int;tbn1_mi_mae_situacion_inmueble_181(id_situacion_inmueble_181);tbn1_mi_situacion_inmueble_181(id_situacion_inmueble_181);;datos_detalle
+referencia_catastral;varchar(20);;;;datos_detalle
+importe_valor_tasacion_inmueble;decimal(18, 2);;;;F
+id_tipo_identificacion_181;int;tbn1_mi_mae_tipo_identificacion_181(id_tipo_identificacion_181);tbn1_mi_tipo_identificacion_181(id_tipo_identificacion_181);;datos_detalle
+codigo_iban;varchar(4);;;;No
+id_clave_intervencion_operacion_181;int;tbn1_mi_mae_clave_intervencion_operacion_181(id_clave_intervencion_operacion_181);tbn1_mi_clave_intervencion_operacion_181(id_clave_intervencion_operacion_181);;datos_detalle
+nif_prestamista_11;varchar(11);;;;No
+nif_prestamista;varchar(12);;;;prestamistas
+nombre_prestamista ;varchar(40);;;;prestamistas
+porcentaje_financiacion;numeric(5, 2);;;;F

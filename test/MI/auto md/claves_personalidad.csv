@@ -1,0 +1,2 @@
+cod_clave_personalidad;varchar(1);#
+clave_personalidad;varchar(40);

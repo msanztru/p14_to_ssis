@@ -1,0 +1,59 @@
+id_documento;int;tbn1_dim_documentos(id_documento);tbn1_documentos(id_documento);#;documentos
+id_expediente;int;tbn1_dim_expedientes(id_expediente);tbn1_expedientes(id_expediente);;documentos
+id_mae_no_id_declarante;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarantes
+id_mae_no_id_declarado;int;tbn1_mae_no_identificados(id_mae_no_identificados);;;declarados
+ejercicio;smallint;;;;periodos
+modelo ;varchar(3);;;;datos_caratula
+id_administracion_declarante;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_caratula
+es_externo_declarante;bit;;;;marcas
+nif_declarante_781_11;varchar(11);;;;No
+nif_declarante_781;varchar(12);;;;declarantes
+es_contribuyente_declarante;bit;;;;marcas
+id_contribuyente_declarante;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarantes
+es_complementaria;varchar(1);;;;marcas
+es_sustitutiva;varchar(1);;;;marcas
+id_tipo_presentacion;int;tbn1_dim_mi_tipo_presentacion(id_tipo_presentacion);tbn1_mi_tipo_presentacion(id_tipo_presentacion);;datos_caratula
+telefono_contacto;varchar(9);;;;declarantes
+nombre_contacto;varchar(40);;;;declarantes
+numero_caja;varchar(8);;;;No
+contador_revisiones;decimal(1, 0);;;;No
+fecha_presentacion;date;;;;periodos
+mes_presentacion;int;;;;periodos
+anyo_presentacion ;int;;;;periodos
+es_rehabilitacion;varchar(1);;;;marcas
+secuencia;varchar(9);;;#;declarados
+id_administracion_declarado;int;tbn1_dim_mi_administracion_hacienda(id_administracion);tbn1_mi_administracion_hacienda(id_administracion);;datos_detalle
+es_externo_declarado;bit;;;;marcas
+nif_declarado_781_11;varchar(11);;;;No
+nif_declarado_781;varchar(12);;;;declarados
+nif_declarado_no_identificado_11;varchar(11);;;;No
+nif_declarado_no_identificado;varchar(12);;;;declarados
+es_contribuyente_declarado;bit;;;;marcas
+id_contribuyente_declarado  ;int;tbn1_dim_contribuyentes(id_contribuyente);tbn1_contribuyentes(id_contribuyente);;declarados
+nivel_identificacion_nif_declarado;varchar(1);;;;declarados
+es_identificado_declarado;bit;;;;marcas
+sw_identificado_declarado   ;varchar(1);;;;marcas
+sw_representante ;varchar(1);;;;marcas
+id_provincia;int;tbn1_dim_provincias(id_provincia);tbn1_provincias(id_provincia);;datos_detalle
+numero_identificacion_cuenta_vivienda;varchar(20);;;;datos_detalle
+fecha_apertura_cuenta_vivienda;date;;;;periodos
+mes_apertura_cuenta_vivienda;int;;;;periodos
+anyo_apertura_cuenta_vivienda;int;;;;periodos
+saldo_inicial_ejercicio;decimal(18, 2);;;;F
+saldo_final_ejercicio;decimal(18, 2);;;;F
+porcentaje_participacion;decimal(6, 3);;;;F
+nif_titular_inmueble_rehabilitacion;varchar(12);;;;datos_rehabilitacion
+nivel_identificacion_nif_titular;varchar(1);;;;No
+es_identificado_titular;bit;;;;marcas
+sw_identificado_titular   ;varchar(1);;;;marcas
+expediente_rehabilitacion;varchar(19);;;;datos_rehabilitacion
+importe_parcial_obra;decimal(18, 2);;;;F
+importe_final_obra;decimal(18, 2) ;;;;F
+importe_prestamo;decimal(18, 2) ;;;;F
+fecha_formalizacion_prestamo;date;;;;periodos
+mes_formalizacion_prestamo;int;;;;periodos
+anyo_formalizacion_prestamo;int;;;;periodos
+codigo_entidad ;varchar(4);;;;datos_caratula
+codigo_sucursal ;varchar(4);;;;datos_caratula
+codigo_control ;varchar(2);;;;datos_caratula
+numero_cuenta ;varchar(10);;;;datos_caratula

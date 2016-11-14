@@ -1,0 +1,2 @@
+cod_clave_tipo_renta;int;#
+clave_tipo_renta;varchar(150);

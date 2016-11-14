@@ -1,0 +1,2 @@
+cod_subclave_tipo_renta;varchar(2);#
+subclave_tipo_renta;varchar(500);

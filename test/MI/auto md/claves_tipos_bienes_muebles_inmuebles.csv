@@ -1,0 +1,4 @@
+#nombre;claves_tipos_bienes_muebles_inmuebles;
+#campo;tipo;es_clave
+cod_clave_tipo_bien_mueble_inmueble;varchar(1);#
+clave_tipo_bien_mueble_inmueble;varchar(50);

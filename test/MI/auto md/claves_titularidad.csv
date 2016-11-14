@@ -1,0 +1,2 @@
+cod_clave_titularidad;varchar(1);#
+clave_titularidad;varchar(80);

@@ -1,0 +1,4 @@
+#nombre;clave_operacion_193;
+#campo;tipo;es_clave
+cod_clave_operacion_193;varchar(1);#
+clave_operacion_193;varchar(200);

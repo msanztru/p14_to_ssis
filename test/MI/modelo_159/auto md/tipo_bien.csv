@@ -1,0 +1,4 @@
+#nombre;tipo_bien;
+#campo;tipo;es_clave
+cod_tipo_bien;varchar(1);#
+tipo_bien;varchar(50);

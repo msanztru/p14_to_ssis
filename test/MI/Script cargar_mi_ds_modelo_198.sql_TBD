@@ -1,0 +1,1454 @@
+﻿PRINT 'normalizado_mi_198_ds.sql'
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros')
+CREATE TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros(
+	id_mi_ds_198_activos_financieros int IDENTITY(1,1),
+	id_documento int NOT NULL,
+	id_expediente int NOT NULL,
+	ejercicio smallint NOT NULL,
+	referencia decimal(9, 0) NOT NULL,
+	secuencia varchar(11) NOT NULL,
+	modelo varchar(3) NOT NULL,
+	nif_declarante_198_11 varchar(11) NOT NULL,
+	nif_declarado_198_11 varchar(11) NOT NULL,
+	nif_declarante_no_identificado_11 varchar(11) NOT NULL,
+	nif_declarado_no_identificado_11 varchar(11) NOT NULL,
+	nif_declarante_198 varchar(12) NOT NULL,
+	nif_declarado_198 varchar(12) NOT NULL,
+	nif_declarante_no_identificado varchar(12) NOT NULL,
+	nif_declarado_no_identificado varchar(12) NOT NULL,
+	es_contribuyente_declarante bit NOT NULL,
+	es_externo bit NOT NULL,
+	id_contribuyente_declarante int NOT NULL,
+	es_contribuyente_declarado bit NOT NULL,
+	id_contribuyente_declarado int NOT NULL,
+	delegacion_hacienda varchar(2) NOT NULL,
+	cod_administracion varchar(3) NOT NULL,
+	telefono varchar(10) NOT NULL,
+	razon_social varchar(40) NOT NULL,
+	cod_presentador_colectivo int NOT NULL,
+	es_identificado_declarante bit NOT NULL,
+	sw_identificado_declarante varchar(1) NOT NULL,
+	cod_entidad_gestora varchar(4) NOT NULL,
+	cod_tipo_presentacion varchar(1) NOT NULL,
+	fecha_presentacion date NOT NULL,
+	mes_presentacion int NOT NULL,
+	anyo_presentacion int NOT NULL,
+	num_caja varchar(8) NOT NULL,
+	es_erroneo_declarante bit NOT NULL,
+	num_declarados_erroneos decimal(9, 0) NOT NULL,
+	hay_observaciones bit NOT NULL,
+	es_historico bit NOT NULL,
+	fecha_alta date NOT NULL,
+	volumen_operaciones decimal(18, 2),
+	num_justificante numeric(13, 0) NOT NULL,
+	cod_tipo_declaracion varchar(1) NOT NULL,
+	num_justificante_sustitutiva decimal(13, 0) NOT NULL,
+	contador_revisiones int NOT NULL,
+	es_representante varchar(1) NOT NULL,
+	cod_provincia varchar(2) NOT NULL,
+	cod_pais varchar(3) NOT NULL,
+	num_perceptores decimal(3, 0) NOT NULL,
+	nro_orden decimal(7, 0) NOT NULL,
+	cod_tipo_codigo varchar(1) NOT NULL,
+	banco varchar(4) NOT NULL,
+	sucursal varchar(4) NOT NULL,
+	num_cuenta varchar(12) NOT NULL,
+	fecha_operacion date NOT NULL,
+	mes_operacion int NOT NULL,
+	anyo_operacion int NOT NULL,
+	cod_clave_identificacion_fondo varchar(1) NOT NULL,
+	emisor varchar(12) NOT NULL,
+	cod_clave_origen varchar(1) NOT NULL,
+	cod_clave_operacion_198 varchar(1) NOT NULL,
+	cod_clave_mercado varchar(1) NOT NULL,
+	id_clave_representacion int NOT NULL,
+	cod_clave_valor varchar(1) NOT NULL,
+	num_activos decimal(15, 2),
+	porc_participacion decimal(15, 2),
+	cod_clave_declarado varchar(1) NOT NULL,
+	cod_relacion decimal(7, 0) NOT NULL,
+	es_identificado_declarado bit NOT NULL,
+	sw_identificado_declarado varchar(1) NOT NULL,
+	es_erroneo_declarado bit NOT NULL,
+	fecha_vcto_prestamo date NOT NULL,
+	mes_vencimiento_prestamo int NOT NULL,
+	anyo_vencimiento_prestamo int NOT NULL,
+	cod_tipo_importe varchar(2) NOT NULL,
+	importe numeric(18, 2),
+	id_mae_no_id_declarado int NOT NULL,
+	id_mae_no_id_declarante int NOT NULL,
+	fecha_carga date NOT NULL,
+	fec_alta datetime,
+	fec_modificacion datetime,
+	fec_baja datetime,
+	CONSTRAINT uk_mi_ds_198_activos_financieros UNIQUE (id_documento,secuencia,cod_tipo_importe)
+)
+GO
+
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mi_ds_198_activos_financieros')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_mi_ds_198_activos_financieros int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_documento')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_documento int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_expediente')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_expediente int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='ejercicio')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD ejercicio smallint
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='referencia')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD referencia decimal(9, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='secuencia')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD secuencia varchar(11)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='modelo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD modelo varchar(3)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_198_11')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarante_198_11 varchar(11)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_198_11')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarado_198_11 varchar(11)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_no_identificado_11')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarante_no_identificado_11 varchar(11)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_no_identificado_11')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarado_no_identificado_11 varchar(11)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_198')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarante_198 varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_198')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarado_198 varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_no_identificado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarante_no_identificado varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_no_identificado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nif_declarado_no_identificado varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_contribuyente_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_contribuyente_declarante bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_externo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_externo bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_contribuyente_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_contribuyente_declarante int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_contribuyente_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_contribuyente_declarado bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_contribuyente_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_contribuyente_declarado int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='delegacion_hacienda')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD delegacion_hacienda varchar(2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_administracion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_administracion varchar(3)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='telefono')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD telefono varchar(10)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='razon_social')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD razon_social varchar(40)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_presentador_colectivo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_presentador_colectivo int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_identificado_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_identificado_declarante bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sw_identificado_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD sw_identificado_declarante varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_entidad_gestora')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_entidad_gestora varchar(4)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_presentacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_tipo_presentacion varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_presentacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fecha_presentacion date
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_presentacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD mes_presentacion int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_presentacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD anyo_presentacion int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_caja')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_caja varchar(8)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_erroneo_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_erroneo_declarante bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_declarados_erroneos')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_declarados_erroneos decimal(9, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='hay_observaciones')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD hay_observaciones bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_historico')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_historico bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_alta')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fecha_alta date
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='volumen_operaciones')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD volumen_operaciones decimal(18, 2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_justificante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_justificante numeric(13, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_declaracion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_tipo_declaracion varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_justificante_sustitutiva')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_justificante_sustitutiva decimal(13, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='contador_revisiones')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD contador_revisiones int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_representante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_representante varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_provincia')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_provincia varchar(2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_pais')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_pais varchar(3)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_perceptores')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_perceptores decimal(3, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nro_orden')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD nro_orden decimal(7, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_codigo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_tipo_codigo varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='banco')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD banco varchar(4)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sucursal')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD sucursal varchar(4)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_cuenta')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_cuenta varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_operacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fecha_operacion date
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_operacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD mes_operacion int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_operacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD anyo_operacion int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_identificacion_fondo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_identificacion_fondo varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='emisor')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD emisor varchar(12)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_origen')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_origen varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_operacion_198')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_operacion_198 varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_mercado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_mercado varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_clave_representacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_clave_representacion int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_valor')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_valor varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_activos')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD num_activos decimal(15, 2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='porc_participacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD porc_participacion decimal(15, 2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_clave_declarado varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_relacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_relacion decimal(7, 0)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_identificado_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_identificado_declarado bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sw_identificado_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD sw_identificado_declarado varchar(1)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_erroneo_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD es_erroneo_declarado bit
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_vcto_prestamo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fecha_vcto_prestamo date
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_vencimiento_prestamo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD mes_vencimiento_prestamo int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_vencimiento_prestamo')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD anyo_vencimiento_prestamo int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_importe')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD cod_tipo_importe varchar(2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='importe')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD importe numeric(18, 2)
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mae_no_id_declarado')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_mae_no_id_declarado int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mae_no_id_declarante')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD id_mae_no_id_declarante int
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_carga')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fecha_carga date
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_alta')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fec_alta datetime
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_modificacion')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fec_modificacion datetime
+GO
+
+IF NOT EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_baja')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ADD fec_baja datetime
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mi_ds_198_activos_financieros' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_mi_ds_198_activos_financieros int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_documento' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_documento int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_expediente' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_expediente int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='ejercicio' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN ejercicio smallint NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='referencia' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN referencia decimal(9, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='secuencia' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN secuencia varchar(11) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='modelo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN modelo varchar(3) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_198_11' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarante_198_11 varchar(11) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_198_11' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarado_198_11 varchar(11) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_no_identificado_11' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarante_no_identificado_11 varchar(11) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_no_identificado_11' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarado_no_identificado_11 varchar(11) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_198' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarante_198 varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_198' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarado_198 varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarante_no_identificado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarante_no_identificado varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nif_declarado_no_identificado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nif_declarado_no_identificado varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_contribuyente_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_contribuyente_declarante bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_externo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_externo bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_contribuyente_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_contribuyente_declarante int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_contribuyente_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_contribuyente_declarado bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_contribuyente_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_contribuyente_declarado int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='delegacion_hacienda' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN delegacion_hacienda varchar(2) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_administracion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_administracion varchar(3) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='telefono' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN telefono varchar(10) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='razon_social' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN razon_social varchar(40) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_presentador_colectivo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_presentador_colectivo int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_identificado_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_identificado_declarante bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sw_identificado_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN sw_identificado_declarante varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_entidad_gestora' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_entidad_gestora varchar(4) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_presentacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_tipo_presentacion varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_presentacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fecha_presentacion date NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_presentacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN mes_presentacion int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_presentacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN anyo_presentacion int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_caja' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_caja varchar(8) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_erroneo_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_erroneo_declarante bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_declarados_erroneos' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_declarados_erroneos decimal(9, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='hay_observaciones' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN hay_observaciones bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_historico' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_historico bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_alta' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fecha_alta date NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='volumen_operaciones' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN volumen_operaciones decimal(18, 2) NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_justificante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_justificante numeric(13, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_declaracion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_tipo_declaracion varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_justificante_sustitutiva' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_justificante_sustitutiva decimal(13, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='contador_revisiones' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN contador_revisiones int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_representante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_representante varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_provincia' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_provincia varchar(2) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_pais' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_pais varchar(3) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_perceptores' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_perceptores decimal(3, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='nro_orden' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN nro_orden decimal(7, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_codigo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_tipo_codigo varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='banco' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN banco varchar(4) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sucursal' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN sucursal varchar(4) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_cuenta' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_cuenta varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_operacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fecha_operacion date NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_operacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN mes_operacion int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_operacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN anyo_operacion int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_identificacion_fondo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_identificacion_fondo varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='emisor' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN emisor varchar(12) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_origen' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_origen varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_operacion_198' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_operacion_198 varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_mercado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_mercado varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_clave_representacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_clave_representacion int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_valor' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_valor varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='num_activos' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN num_activos decimal(15, 2) NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='porc_participacion' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN porc_participacion decimal(15, 2) NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_clave_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_clave_declarado varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_relacion' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_relacion decimal(7, 0) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_identificado_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_identificado_declarado bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='sw_identificado_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN sw_identificado_declarado varchar(1) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='es_erroneo_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN es_erroneo_declarado bit NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_vcto_prestamo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fecha_vcto_prestamo date NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='mes_vencimiento_prestamo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN mes_vencimiento_prestamo int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='anyo_vencimiento_prestamo' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN anyo_vencimiento_prestamo int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='cod_tipo_importe' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN cod_tipo_importe varchar(2) NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='importe' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN importe numeric(18, 2) NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mae_no_id_declarado' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_mae_no_id_declarado int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='id_mae_no_id_declarante' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN id_mae_no_id_declarante int NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fecha_carga' AND IS_NULLABLE='YES')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fecha_carga date NOT NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_alta' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fec_alta datetime NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_modificacion' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fec_modificacion datetime NULL
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_norm_dhyf.INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA='dbo' AND TABLE_NAME='tbn1_mi_ds_198_activos_financieros' AND COLUMN_NAME='fec_baja' AND IS_NULLABLE='NO')
+ALTER TABLE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros ALTER COLUMN fec_baja datetime NULL
+GO
+
+USE dbn1_stg_dhyf
+GO
+
+IF EXISTS (SELECT 1 FROM dbn1_stg_dhyf.INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA='dbo' AND ROUTINE_NAME='spn1_cargar_normalizado_mi_ds_198_activos_financieros' AND ROUTINE_TYPE='PROCEDURE')
+DROP PROCEDURE dbo.spn1_cargar_normalizado_mi_ds_198_activos_financieros;
+GO
+
+CREATE PROCEDURE dbo.spn1_cargar_normalizado_mi_ds_198_activos_financieros(@logpadre int) AS
+BEGIN
+
+	DECLARE @procedure_name varchar(100)='dbn1_stg_dhyf.dbo.spn1_cargar_normalizado_mi_ds_198_activos_financieros'
+	SET NOCOUNT ON;
+	DECLARE @log int;
+	EXECUTE @log = dbn1_stg_dhyf.dbo.spn1_apuntar_log @logpadre,@procedure_name;
+	DECLARE @fecha_ultima_carga datetime=dbn1_stg_dhyf.dbo.fnn1_fecha_ultima_carga(@log);
+	DECLARE @continuar_en_caso_error bit=0;
+	IF @logpadre IS NOT NULL AND EXISTS (SELECT 1 AS expr1
+	FROM dbn1_norm_dhyf.audit.tbn1_procedimientos_excluidos
+	WHERE
+		'dbn1_stg_dhyf.dbo.'+procedimiento=@procedure_name
+		AND excluido=1
+	) BEGIN
+		UPDATE dbn1_norm_dhyf.audit.tbn1_logs SET
+			mensaje_error='EXCLUÍDO'
+		WHERE
+			id_log=@log;
+		RETURN
+	END
+		BEGIN TRY
+
+	;WITH
+	query AS (
+--select top 10000 * from
+select * from
+
+(
+SELECT  
+  id_documento ,
+  id_expediente ,
+  cabe.ejercicio as ejercicio ,
+  cabe.referencia as referencia,
+  secuencia ,
+  modelo ,
+  nif_declarante_198_11 ,
+  nif_declarado_198_11 ,
+  nif_declarante_no_identificado_11 ,
+  nif_declarado_no_identificado_11 ,
+  nif_declarante_198 ,
+  nif_declarado_198 ,
+  nif_declarante_no_identificado ,
+  nif_declarado_no_identificado,
+  es_contribuyente_declarante ,
+  es_externo,
+  id_contribuyente_declarante ,
+  es_contribuyente_declarado,
+  id_contribuyente_declarado ,
+  delegacion_hacienda,
+  cod_administracion,
+  telefono ,
+  razon_social,
+  cod_presentador_colectivo,
+  es_identificado_declarante ,
+  sw_identificado_declarante ,
+  cod_entidad_gestora ,
+  cod_tipo_presentacion ,
+  fecha_presentacion,
+  mes_presentacion,
+  anyo_presentacion,
+  num_caja,
+  es_erroneo_declarante,
+  num_declarados_erroneos,
+  hay_observaciones,
+  es_historico,
+  fecha_alta,
+  volumen_operaciones,
+  num_justificante,
+  cod_tipo_declaracion,
+  num_justificante_sustitutiva,
+  contador_revisiones,
+  es_representante,
+  cod_provincia,
+  cod_pais,
+  num_perceptores,
+  nro_orden,
+  cod_tipo_codigo,
+  banco,
+  sucursal,
+  num_cuenta,
+  fecha_operacion,
+  mes_operacion,
+  anyo_operacion,
+  cod_clave_identificacion_fondo,
+  emisor,
+  cod_clave_origen,
+  cod_clave_operacion_198,
+  cod_clave_mercado,
+  id_clave_representacion,
+  cod_clave_valor,
+  num_activos,
+  porc_participacion,
+  cod_clave_declarado,
+  cod_relacion,
+  es_identificado_declarado,
+  sw_identificado_declarado,
+  es_erroneo_declarado,
+  fecha_vcto_prestamo,
+  mes_vencimiento_prestamo,
+  anyo_vencimiento_prestamo,
+  coalesce(im80tipo,'') AS cod_tipo_importe,
+  round(importes.im80importe/100,2) AS importe,
+  id_mae_no_id_declarante ,
+  id_mae_no_id_declarado, 
+  fecha_carga
+
+    FROM
+	(
+	select 
+		0 as es_externo, 
+		da80ejercicio AS ejercicio,
+		da80referdoc AS referencia,
+		coalesce(mae_noid_det.id_mae_no_identificados,-1) id_mae_no_id_declarado,
+		CAST(da80secuen AS varchar) AS secuencia,
+		coalesce(d.id_contribuyente,indefinidos.id_contribuyente) AS id_contribuyente_declarado,
+		declarado.da80provin AS cod_provincia,
+		declarado.da80pais AS cod_pais,
+		declarado.da80cltipo AS cod_tipo_codigo,
+		declarado.da80clcodigo AS cod_clave_identificacion_fondo,
+		declarado.da80clorigen AS cod_clave_origen,
+		declarado.da80cloperacion AS cod_clave_operacion_198,
+		declarado.da80clmercado AS cod_clave_mercado,
+		coalesce(repre.id_clave_representacion,indefinidos.id_clave_representacion) AS id_clave_representacion,
+		declarado.da80clvalor AS cod_clave_valor,
+		declarado.da80cldeclarado AS cod_clave_declarado,
+		declarado.da80fechaoper AS fecha_operacion,
+		month(declarado.da80fechaoper) AS mes_operacion,
+		year(declarado.da80fechaoper) AS anyo_operacion,
+		CASE
+          WHEN declarado.da80fechavcto<>'0001-01-01' THEN declarado.da80fechavcto
+          ELSE CAST('21000101' AS date)
+		END AS fecha_vcto_prestamo,
+		month(CASE
+          WHEN declarado.da80fechavcto<>'0001-01-01' THEN declarado.da80fechavcto
+          ELSE CAST('21000101' AS date)
+		END) AS mes_vencimiento_prestamo,
+		year(CASE
+          WHEN declarado.da80fechavcto<>'0001-01-01' THEN declarado.da80fechavcto
+          ELSE CAST('21000101' AS date)
+		END) AS anyo_vencimiento_prestamo,
+		coalesce(declarado.da80cif,'') AS nif_declarado_198_11,
+		CASE WHEN da80identif=1 THEN 1 ELSE 0 END AS es_identificado_declarado,
+		CASE
+          WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=1 THEN 0
+          WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=0 THEN 1
+          WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=0 THEN 2
+          ELSE ''
+		END AS sw_identificado_declarado,
+		CASE WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.da80cif,'') ELSE '' END AS nif_declarado_no_identificado_11,
+ 		coalesce(left(coalesce(declarado.da80cif,''),9)+' '+right(coalesce(declarado.da80cif,''),2),'') AS nif_declarado_198,
+		coalesce(left(CASE WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.da80cif,'') ELSE '' END,9)+' '+right(CASE WHEN CASE WHEN da80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.da80cif,'') ELSE '' END,2),'') AS nif_declarado_no_identificado,
+		CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END AS es_contribuyente_declarado,
+		coalesce(da80emisor,'') AS emisor,
+		coalesce(da80represen,'') AS es_representante,
+		da80nrodecl AS num_perceptores,
+		da80nroorden AS nro_orden,
+		coalesce(da80banco,'') AS banco,
+		coalesce(da80sucursal,'') AS sucursal,
+		coalesce(da80nrocuenta,'') AS num_cuenta,
+		da80nroactivos/100 AS num_activos,
+		da80porcen/100 AS porc_participacion,
+		coalesce(da80codrelacion,'') AS cod_relacion,
+		CASE WHEN da80error=1 THEN 1 ELSE 0 END AS es_erroneo_declarado,
+		da80ejercicio ,
+		da80referdoc
+	 from dbn1_stg_dhyf.dbo.tbn180da_af declarado
+		--no_identificados_declarado
+		LEFT JOIN (SELECT id_mae_no_identificados, ejercicio, clavagru, clavdeta  FROM   dbn1_dmr_dhyf.dbo.tbn1_mae_no_identificados WHERE  aplicacion = 'AF' AND detamodel = '198' ) mae_noid_det
+				ON	da80ejercicio = mae_noid_det.ejercicio
+				AND cast(da80referdoc as varchar) = mae_noid_det.clavagru
+				AND right('0000000000000' +  cast(da80secuen  as varchar) , 13)=  mae_noid_det.clavdeta 
+	 LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_contribuyentes d ON (declarado.da80cif=d.nif_maestro AND d.fec_fin_vigencia=CAST('21000101' AS date))
+	 LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_mi_clave_representacion repre ON (repre.cod_clave_representacion=declarado.da80clrepres)
+	 CROSS JOIN dbn1_norm_dhyf.dbo.tbn1_indefinidos indefinidos
+		 ) declarado   
+	 
+    INNER JOIN
+	(
+	SELECT 
+      caejercicio AS ejercicio,
+      coalesce(camodelo,'') AS modelo,
+	  coalesce(mae_noid_cabe.id_mae_no_identificados,-1) id_mae_no_id_declarante,
+      careferdoc AS referencia,
+      doc.id_documento AS id_documento,
+      e.id_expediente AS id_expediente,
+      coalesce(c.id_contribuyente,indefinidos.id_contribuyente) AS id_contribuyente_declarante,
+      coalesce('B',cabe.caadmonhaci) AS cod_administracion,
+      cabe.catippres AS cod_tipo_presentacion,
+      cabe.catipodecl AS cod_tipo_declaracion,
+      cabe.cafecpres AS fecha_presentacion,
+      month(cabe.cafecpres) AS mes_presentacion,
+      year(cabe.cafecpres) AS anyo_presentacion,
+      coalesce(cabe.cacifdecl,'') AS nif_declarante_198_11,
+      CASE WHEN caidentif=1 THEN 1 ELSE 0 END AS es_identificado_declarante,
+      CASE
+          WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=1 THEN 0
+          WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=0 THEN 1
+          WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=0 THEN 2
+          ELSE ''
+      END AS sw_identificado_declarante,
+      CASE WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cacifdecl,'') ELSE '' END AS nif_declarante_no_identificado_11,
+      coalesce(left(coalesce(cabe.cacifdecl,''),9)+' '+right(coalesce(cabe.cacifdecl,''),2),'') AS nif_declarante_198,
+      coalesce(left(CASE WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cacifdecl,'') ELSE '' END,9)+' '+right(CASE WHEN CASE WHEN caidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cacifdecl,'') ELSE '' END,2),'') AS nif_declarante_no_identificado,
+      CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END AS es_contribuyente_declarante,
+      coalesce(cadh,'') AS delegacion_hacienda,
+      coalesce(catelefono,'') AS telefono,
+      coalesce(capersona,'') AS razon_social,
+      caenlace AS cod_presentador_colectivo,
+      coalesce(cacodentg,'') AS cod_entidad_gestora,
+      coalesce(canumcaja,'') AS num_caja,
+      CASE WHEN caerror=1 THEN 1 ELSE 0 END AS es_erroneo_declarante,
+      caconterror AS num_declarados_erroneos,
+      CASE WHEN cabe.caobserva<>'0' THEN 1 ELSE 0 END AS hay_observaciones,
+      CASE WHEN cabe.cahistorico='1' THEN 1 ELSE 0 END AS es_historico,
+      cafecalta AS fecha_alta,
+      cavolumen AS volumen_operaciones,
+      cajustif AS num_justificante,
+      cajustifsus AS num_justificante_sustitutiva,
+      cacrevi AS contador_revisiones,
+	 coalesce(cafecalta,CAST('21000101' AS datetime)) fecha_carga
+
+	FROM (SELECT * FROM dbn1_stg_dhyf.dbo.tbn1cabe_af WHERE camodelo='198') cabe
+		--no_identificados_declarante
+		LEFT JOIN (SELECT id_mae_no_identificados, ejercicio, clavagru, clavdeta  FROM   dbn1_dmr_dhyf.dbo.tbn1_mae_no_identificados WHERE  aplicacion = 'AF' AND detamodel = '198' ) mae_noid_cabe
+				ON	cabe.caejercicio = mae_noid_cabe.ejercicio
+				AND cast(cabe.careferdoc as varchar) = mae_noid_cabe.clavagru
+				AND right('0000000000000' +  mae_noid_cabe.clavdeta, 13) = '0000000000000' 
+		INNER JOIN dbn1_norm_dhyf.dbo.tbn1_documentos doc ON (doc.referencia=CAST(cabe.caejercicio AS varchar)+'D7'+CAST(cabe.careferdoc AS varchar)+'00K0000')
+		INNER JOIN dbn1_norm_dhyf.dbo.tbn1_expedientes e ON (doc.id_expediente=e.id_expediente)
+		LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_contribuyentes c ON (cabe.cacifdecl=c.nif_maestro AND c.fec_fin_vigencia=CAST('21000101' AS date))
+		CROSS JOIN dbn1_norm_dhyf.dbo.tbn1_indefinidos indefinidos
+		) cabe ON cabe.ejercicio=declarado.da80ejercicio AND cabe.referencia=declarado.da80referdoc
+
+		
+	INNER JOIN 
+			
+			dbn1_stg_dhyf.dbo.tbn180im_af importes
+		 
+			ON (declarado.ejercicio=importes.im80ejercicio AND declarado.referencia=importes.im80referdoc AND declarado.secuencia=importes.im80secuen)   
+		
+
+--==============================================--
+
+					UNION ALL					
+
+--==============================================--
+
+
+SELECT  
+  id_documento ,
+  id_expediente ,
+  cabe.ejercicio as ejercicio ,
+  cabe.referencia as referencia,
+  secuencia ,
+  modelo ,
+  nif_declarante_198_11 ,
+  nif_declarado_198_11 ,
+  nif_declarante_no_identificado_11 ,
+  nif_declarado_no_identificado_11 ,
+  nif_declarante_198 ,
+  nif_declarado_198 ,
+  nif_declarante_no_identificado ,
+  nif_declarado_no_identificado,
+  es_contribuyente_declarante ,
+  es_externo,
+  id_contribuyente_declarante ,
+  es_contribuyente_declarado,
+  id_contribuyente_declarado ,
+  delegacion_hacienda,
+  cabe.cod_administracion,
+  telefono ,
+  razon_social,
+  cod_presentador_colectivo,
+  es_identificado_declarante ,
+  sw_identificado_declarante ,
+  cod_entidad_gestora ,
+  cod_tipo_presentacion ,
+  fecha_presentacion,
+  mes_presentacion,
+  anyo_presentacion,
+  num_caja,
+  es_erroneo_declarante,
+  num_declarados_erroneos,
+  hay_observaciones,
+  es_historico,
+  fecha_alta,
+  volumen_operaciones,
+  num_justificante,
+  cod_tipo_declaracion,
+  num_justificante_sustitutiva,
+  contador_revisiones,
+  es_representante,
+  cod_provincia,
+  cod_pais,
+  num_perceptores,
+  nro_orden,
+  cod_tipo_codigo,
+  banco,
+  sucursal,
+  num_cuenta,
+  fecha_operacion,
+  mes_operacion,
+  anyo_operacion,
+  cod_clave_identificacion_fondo,
+  emisor,
+  cod_clave_origen,
+  cod_clave_operacion_198,
+  cod_clave_mercado,
+  id_clave_representacion,
+  cod_clave_valor,
+  num_activos,
+  porc_participacion,
+  cod_clave_declarado,
+  cod_relacion,
+  es_identificado_declarado,
+  sw_identificado_declarado,
+  es_erroneo_declarado,
+  fecha_vcto_prestamo,
+  mes_vencimiento_prestamo,
+  anyo_vencimiento_prestamo,
+  coalesce(ix80tipo,'') AS cod_tipo_importe,
+  round(importes.ix80importe/100,2) AS importe,
+  id_mae_no_id_declarante ,
+  id_mae_no_id_declarado, 
+  fecha_carga
+             
+    FROM 
+	(
+	select  	
+	  1 as es_externo, 
+	  px80ejercicio AS ejercicio,
+      px80referdoc AS referencia,
+	  coalesce(mae_noid_det.id_mae_no_identificados,-1) id_mae_no_id_declarado,
+	  CAST(px80nropte AS varchar) AS secuencia,
+      coalesce(d.id_contribuyente,indefinidos.id_contribuyente) AS id_contribuyente_declarado,
+      declarado.px80provin AS cod_provincia,
+      declarado.px80pais AS cod_pais,
+      declarado.px80admon AS cod_administracion,
+      declarado.px80cltipo AS cod_tipo_codigo,
+      declarado.px80clcodigo AS cod_clave_identificacion_fondo,
+      declarado.px80clorigen AS cod_clave_origen,
+      declarado.px80cloperacion AS cod_clave_operacion_198,
+      declarado.px80clmercado AS cod_clave_mercado,
+      coalesce(repre.id_clave_representacion,indefinidos.id_clave_representacion) AS id_clave_representacion,
+      declarado.px80clvalor AS cod_clave_valor,
+      declarado.px80cldeclarado AS cod_clave_declarado,
+      declarado.px80fechaoper AS fecha_operacion,
+      month(declarado.px80fechaoper) AS mes_operacion,
+      year(declarado.px80fechaoper) AS anyo_operacion,
+      CASE
+          WHEN declarado.px80fechavcto<>'0001-01-01' THEN declarado.px80fechavcto
+          ELSE CAST('21000101' AS date)
+      END AS fecha_vcto_prestamo,
+      month(CASE
+          WHEN declarado.px80fechavcto<>'0001-01-01' THEN declarado.px80fechavcto
+          ELSE CAST('21000101' AS date)
+      END) AS mes_vencimiento_prestamo,
+      year(CASE
+          WHEN declarado.px80fechavcto<>'0001-01-01' THEN declarado.px80fechavcto
+          ELSE CAST('21000101' AS date)
+      END) AS anyo_vencimiento_prestamo,
+      coalesce(declarado.px80cif,'') AS nif_declarado_198_11,
+      CASE WHEN px80identif=1 THEN 1 ELSE 0 END AS es_identificado_declarado,
+      CASE
+          WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=1 THEN 0
+          WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=0 THEN 1
+          WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=0 THEN 2
+          ELSE ''
+      END AS sw_identificado_declarado,
+      CASE WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.px80cif,'') ELSE '' END AS nif_declarado_no_identificado_11,
+      coalesce(left(coalesce(declarado.px80cif,''),9)+' '+right(coalesce(declarado.px80cif,''),2),'') AS nif_declarado_198,
+      coalesce(left(CASE WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.px80cif,'') ELSE '' END,9)+' '+right(CASE WHEN CASE WHEN px80identif=1 THEN 1 ELSE 0 END=0 THEN coalesce(declarado.px80cif,'') ELSE '' END,2),'') AS nif_declarado_no_identificado,
+      CASE WHEN d.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END AS es_contribuyente_declarado,
+      coalesce(px80emisor,'') AS emisor,
+      coalesce(px80represen,'') AS es_representante,
+      px80nrodecl AS num_perceptores,
+      px80nroorden AS nro_orden,
+      coalesce(px80banco,'') AS banco,
+      coalesce(px80sucursal,'') AS sucursal,
+      coalesce(px80nrocuenta,'') AS num_cuenta,
+      px80nroactivos/100 AS num_activos,
+      px80porcen/100 AS porc_participacion,
+      coalesce(px80codrelacion,'') AS cod_relacion,
+      CASE WHEN px80error=1 THEN 1 ELSE 0 END AS es_erroneo_declarado,
+	  px80ejercicio ,px80referdoc
+
+	 from dbn1_stg_dhyf.dbo.tbn18xpe_af declarado 
+		--no_identificados_declarado
+		LEFT JOIN (SELECT id_mae_no_identificados, ejercicio, clavagru, clavdeta  FROM   dbn1_dmr_dhyf.dbo.tbn1_mae_no_identificados WHERE  aplicacion = 'AF' AND detamodel = '198' ) mae_noid_det
+				ON	px80ejercicio = mae_noid_det.ejercicio
+				AND cast(px80referdoc as varchar) = mae_noid_det.clavagru
+				AND right('0000000000000' +  cast(px80nropte  as varchar) , 13)=  mae_noid_det.clavdeta 
+	 LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_contribuyentes d ON (declarado.px80cif=d.nif_maestro AND d.fec_fin_vigencia=CAST('21000101' AS date))
+	 LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_mi_clave_representacion repre ON (repre.cod_clave_representacion=declarado.px80clrepres)
+	 CROSS JOIN dbn1_norm_dhyf.dbo.tbn1_indefinidos indefinidos
+
+	 ) declarado   
+	
+	INNER JOIN 
+	(
+	SELECT 
+      cxejercicio AS ejercicio,
+      coalesce(cxmodelo,'') AS modelo,
+	  coalesce(mae_noid_cabe.id_mae_no_identificados,-1) id_mae_no_id_declarante,
+      cxreferdoc AS referencia,
+      doc.id_documento AS id_documento,
+      e.id_expediente AS id_expediente,
+      coalesce(c.id_contribuyente,indefinidos.id_contribuyente) AS id_contribuyente_declarante,
+      cabe.cxadmon AS cod_administracion,
+      '' AS cod_tipo_presentacion,
+      '' AS cod_tipo_declaracion,
+      CAST('21000101' AS date) AS fecha_presentacion,
+      month(CAST('21000101' AS date)) AS mes_presentacion,
+      year(CAST('21000101' AS date)) AS anyo_presentacion,
+      coalesce(cabe.cxcifdecl,'') AS nif_declarante_198_11,
+      CASE WHEN cxidentif=1 THEN 1 ELSE 0 END AS es_identificado_declarante,
+      CASE
+          WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=1 THEN 0
+          WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=0 THEN 1
+          WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=1 AND CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END=0 THEN 2
+          ELSE ''
+      END AS sw_identificado_declarante,
+      CASE WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cxcifdecl,'') ELSE '' END AS nif_declarante_no_identificado_11,
+      coalesce(left(coalesce(cabe.cxcifdecl,''),9)+' '+right(coalesce(cabe.cxcifdecl,''),2),'') AS nif_declarante_198,
+      coalesce(left(CASE WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cxcifdecl,'') ELSE '' END,9)+' '+right(CASE WHEN CASE WHEN cxidentif=1 THEN 1 ELSE 0 END=0 THEN coalesce(cxcifdecl,'') ELSE '' END,2),'') AS nif_declarante_no_identificado,
+      CASE WHEN c.id_contribuyente IS NOT NULL THEN 1 ELSE 0 END AS es_contribuyente_declarante,
+      '' AS delegacion_hacienda,
+      '' AS telefono,
+      '' AS razon_social,
+      0 AS cod_presentador_colectivo,
+      '' AS cod_entidad_gestora,
+      '' AS num_caja,
+      CASE WHEN cxerror=1 THEN 1 ELSE 0 END AS es_erroneo_declarante,
+      0 AS num_declarados_erroneos,
+      0 AS hay_observaciones,
+      0 AS es_historico,
+      CAST('21000101' AS date) AS fecha_alta,
+      0 AS volumen_operaciones,
+      0 AS num_justificante,
+      0 AS num_justificante_sustitutiva,
+      0 AS contador_revisiones,
+	  coalesce(cxfecalta,CAST('21000101' AS datetime)) fecha_carga
+
+	FROM (SELECT * FROM dbn1_stg_dhyf.dbo.tbn1i3ca_af  WHERE cxmodelo='198') cabe
+		--no_identificados_declarante
+		LEFT JOIN (SELECT id_mae_no_identificados, ejercicio, clavagru, clavdeta  FROM   dbn1_dmr_dhyf.dbo.tbn1_mae_no_identificados WHERE  aplicacion = 'AF' AND detamodel = '198' ) mae_noid_cabe
+				ON	cabe.cxejercicio = mae_noid_cabe.ejercicio
+				AND cast(cabe.cxreferdoc as varchar) = mae_noid_cabe.clavagru
+				AND right('0000000000000' +  mae_noid_cabe.clavdeta, 13) = '0000000000000' 
+		INNER JOIN dbn1_norm_dhyf.dbo.tbn1_documentos doc ON (doc.referencia=CAST(cabe.cxejercicio AS varchar)+'D6'+CAST(cabe.cxreferdoc AS varchar)+'00K0000')
+		INNER JOIN dbn1_norm_dhyf.dbo.tbn1_expedientes e ON (doc.id_expediente=e.id_expediente)
+		LEFT JOIN dbn1_norm_dhyf.dbo.tbn1_contribuyentes c ON (cabe.cxcifdecl=c.nif_maestro AND c.fec_fin_vigencia=CAST('21000101' AS date))
+		CROSS JOIN dbn1_norm_dhyf.dbo.tbn1_indefinidos indefinidos
+	) cabe ON cabe.ejercicio=declarado.px80ejercicio AND cabe.cod_administracion=declarado.cod_administracion AND cabe.referencia=declarado.referencia
+	
+	INNER JOIN 
+	
+	dbn1_stg_dhyf.dbo.tbn18xim_af importes 
+	
+	ON (declarado.ejercicio=importes.ix80ejercicio AND declarado.referencia=importes.ix80referdoc AND declarado.secuencia=importes.ix80nropte)   
+	
+
+) result
+
+	)
+	MERGE dbn1_norm_dhyf.dbo.tbn1_mi_ds_198_activos_financieros AS tbn1_mi_ds_198_activos_financieros
+	USING query ON query.id_documento=tbn1_mi_ds_198_activos_financieros.id_documento AND query.secuencia=tbn1_mi_ds_198_activos_financieros.secuencia AND query.cod_tipo_importe=tbn1_mi_ds_198_activos_financieros.cod_tipo_importe
+	WHEN MATCHED AND ((tbn1_mi_ds_198_activos_financieros.id_expediente<>query.id_expediente OR (tbn1_mi_ds_198_activos_financieros.id_expediente IS NULL AND query.id_expediente IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_expediente IS NOT NULL AND query.id_expediente IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.ejercicio<>query.ejercicio OR (tbn1_mi_ds_198_activos_financieros.ejercicio IS NULL AND query.ejercicio IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.ejercicio IS NOT NULL AND query.ejercicio IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.referencia<>query.referencia OR (tbn1_mi_ds_198_activos_financieros.referencia IS NULL AND query.referencia IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.referencia IS NOT NULL AND query.referencia IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.modelo<>query.modelo OR (tbn1_mi_ds_198_activos_financieros.modelo IS NULL AND query.modelo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.modelo IS NOT NULL AND query.modelo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarante_198_11<>query.nif_declarante_198_11 OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_198_11 IS NULL AND query.nif_declarante_198_11 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_198_11 IS NOT NULL AND query.nif_declarante_198_11 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarado_198_11<>query.nif_declarado_198_11 OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_198_11 IS NULL AND query.nif_declarado_198_11 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_198_11 IS NOT NULL AND query.nif_declarado_198_11 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado_11<>query.nif_declarante_no_identificado_11 OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado_11 IS NULL AND query.nif_declarante_no_identificado_11 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado_11 IS NOT NULL AND query.nif_declarante_no_identificado_11 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado_11<>query.nif_declarado_no_identificado_11 OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado_11 IS NULL AND query.nif_declarado_no_identificado_11 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado_11 IS NOT NULL AND query.nif_declarado_no_identificado_11 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarante_198<>query.nif_declarante_198 OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_198 IS NULL AND query.nif_declarante_198 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_198 IS NOT NULL AND query.nif_declarante_198 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarado_198<>query.nif_declarado_198 OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_198 IS NULL AND query.nif_declarado_198 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_198 IS NOT NULL AND query.nif_declarado_198 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado<>query.nif_declarante_no_identificado OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado IS NULL AND query.nif_declarante_no_identificado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarante_no_identificado IS NOT NULL AND query.nif_declarante_no_identificado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado<>query.nif_declarado_no_identificado OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado IS NULL AND query.nif_declarado_no_identificado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nif_declarado_no_identificado IS NOT NULL AND query.nif_declarado_no_identificado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarante<>query.es_contribuyente_declarante OR (tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarante IS NULL AND query.es_contribuyente_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarante IS NOT NULL AND query.es_contribuyente_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_externo<>query.es_externo OR (tbn1_mi_ds_198_activos_financieros.es_externo IS NULL AND query.es_externo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_externo IS NOT NULL AND query.es_externo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarante<>query.id_contribuyente_declarante OR (tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarante IS NULL AND query.id_contribuyente_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarante IS NOT NULL AND query.id_contribuyente_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarado<>query.es_contribuyente_declarado OR (tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarado IS NULL AND query.es_contribuyente_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_contribuyente_declarado IS NOT NULL AND query.es_contribuyente_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarado<>query.id_contribuyente_declarado OR (tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarado IS NULL AND query.id_contribuyente_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_contribuyente_declarado IS NOT NULL AND query.id_contribuyente_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.delegacion_hacienda<>query.delegacion_hacienda OR (tbn1_mi_ds_198_activos_financieros.delegacion_hacienda IS NULL AND query.delegacion_hacienda IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.delegacion_hacienda IS NOT NULL AND query.delegacion_hacienda IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_administracion<>query.cod_administracion OR (tbn1_mi_ds_198_activos_financieros.cod_administracion IS NULL AND query.cod_administracion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_administracion IS NOT NULL AND query.cod_administracion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.telefono<>query.telefono OR (tbn1_mi_ds_198_activos_financieros.telefono IS NULL AND query.telefono IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.telefono IS NOT NULL AND query.telefono IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.razon_social<>query.razon_social OR (tbn1_mi_ds_198_activos_financieros.razon_social IS NULL AND query.razon_social IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.razon_social IS NOT NULL AND query.razon_social IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_presentador_colectivo<>query.cod_presentador_colectivo OR (tbn1_mi_ds_198_activos_financieros.cod_presentador_colectivo IS NULL AND query.cod_presentador_colectivo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_presentador_colectivo IS NOT NULL AND query.cod_presentador_colectivo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_identificado_declarante<>query.es_identificado_declarante OR (tbn1_mi_ds_198_activos_financieros.es_identificado_declarante IS NULL AND query.es_identificado_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_identificado_declarante IS NOT NULL AND query.es_identificado_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.sw_identificado_declarante<>query.sw_identificado_declarante OR (tbn1_mi_ds_198_activos_financieros.sw_identificado_declarante IS NULL AND query.sw_identificado_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.sw_identificado_declarante IS NOT NULL AND query.sw_identificado_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_entidad_gestora<>query.cod_entidad_gestora OR (tbn1_mi_ds_198_activos_financieros.cod_entidad_gestora IS NULL AND query.cod_entidad_gestora IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_entidad_gestora IS NOT NULL AND query.cod_entidad_gestora IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_tipo_presentacion<>query.cod_tipo_presentacion OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_presentacion IS NULL AND query.cod_tipo_presentacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_presentacion IS NOT NULL AND query.cod_tipo_presentacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.fecha_presentacion<>query.fecha_presentacion OR (tbn1_mi_ds_198_activos_financieros.fecha_presentacion IS NULL AND query.fecha_presentacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.fecha_presentacion IS NOT NULL AND query.fecha_presentacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.mes_presentacion<>query.mes_presentacion OR (tbn1_mi_ds_198_activos_financieros.mes_presentacion IS NULL AND query.mes_presentacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.mes_presentacion IS NOT NULL AND query.mes_presentacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.anyo_presentacion<>query.anyo_presentacion OR (tbn1_mi_ds_198_activos_financieros.anyo_presentacion IS NULL AND query.anyo_presentacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.anyo_presentacion IS NOT NULL AND query.anyo_presentacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_caja<>query.num_caja OR (tbn1_mi_ds_198_activos_financieros.num_caja IS NULL AND query.num_caja IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_caja IS NOT NULL AND query.num_caja IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_erroneo_declarante<>query.es_erroneo_declarante OR (tbn1_mi_ds_198_activos_financieros.es_erroneo_declarante IS NULL AND query.es_erroneo_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_erroneo_declarante IS NOT NULL AND query.es_erroneo_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_declarados_erroneos<>query.num_declarados_erroneos OR (tbn1_mi_ds_198_activos_financieros.num_declarados_erroneos IS NULL AND query.num_declarados_erroneos IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_declarados_erroneos IS NOT NULL AND query.num_declarados_erroneos IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.hay_observaciones<>query.hay_observaciones OR (tbn1_mi_ds_198_activos_financieros.hay_observaciones IS NULL AND query.hay_observaciones IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.hay_observaciones IS NOT NULL AND query.hay_observaciones IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_historico<>query.es_historico OR (tbn1_mi_ds_198_activos_financieros.es_historico IS NULL AND query.es_historico IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_historico IS NOT NULL AND query.es_historico IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.fecha_alta<>query.fecha_alta OR (tbn1_mi_ds_198_activos_financieros.fecha_alta IS NULL AND query.fecha_alta IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.fecha_alta IS NOT NULL AND query.fecha_alta IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.volumen_operaciones<>query.volumen_operaciones OR (tbn1_mi_ds_198_activos_financieros.volumen_operaciones IS NULL AND query.volumen_operaciones IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.volumen_operaciones IS NOT NULL AND query.volumen_operaciones IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_justificante<>query.num_justificante OR (tbn1_mi_ds_198_activos_financieros.num_justificante IS NULL AND query.num_justificante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_justificante IS NOT NULL AND query.num_justificante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_tipo_declaracion<>query.cod_tipo_declaracion OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_declaracion IS NULL AND query.cod_tipo_declaracion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_declaracion IS NOT NULL AND query.cod_tipo_declaracion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_justificante_sustitutiva<>query.num_justificante_sustitutiva OR (tbn1_mi_ds_198_activos_financieros.num_justificante_sustitutiva IS NULL AND query.num_justificante_sustitutiva IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_justificante_sustitutiva IS NOT NULL AND query.num_justificante_sustitutiva IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.contador_revisiones<>query.contador_revisiones OR (tbn1_mi_ds_198_activos_financieros.contador_revisiones IS NULL AND query.contador_revisiones IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.contador_revisiones IS NOT NULL AND query.contador_revisiones IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_representante<>query.es_representante OR (tbn1_mi_ds_198_activos_financieros.es_representante IS NULL AND query.es_representante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_representante IS NOT NULL AND query.es_representante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_provincia<>query.cod_provincia OR (tbn1_mi_ds_198_activos_financieros.cod_provincia IS NULL AND query.cod_provincia IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_provincia IS NOT NULL AND query.cod_provincia IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_pais<>query.cod_pais OR (tbn1_mi_ds_198_activos_financieros.cod_pais IS NULL AND query.cod_pais IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_pais IS NOT NULL AND query.cod_pais IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_perceptores<>query.num_perceptores OR (tbn1_mi_ds_198_activos_financieros.num_perceptores IS NULL AND query.num_perceptores IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_perceptores IS NOT NULL AND query.num_perceptores IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.nro_orden<>query.nro_orden OR (tbn1_mi_ds_198_activos_financieros.nro_orden IS NULL AND query.nro_orden IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.nro_orden IS NOT NULL AND query.nro_orden IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_tipo_codigo<>query.cod_tipo_codigo OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_codigo IS NULL AND query.cod_tipo_codigo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_tipo_codigo IS NOT NULL AND query.cod_tipo_codigo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.banco<>query.banco OR (tbn1_mi_ds_198_activos_financieros.banco IS NULL AND query.banco IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.banco IS NOT NULL AND query.banco IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.sucursal<>query.sucursal OR (tbn1_mi_ds_198_activos_financieros.sucursal IS NULL AND query.sucursal IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.sucursal IS NOT NULL AND query.sucursal IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_cuenta<>query.num_cuenta OR (tbn1_mi_ds_198_activos_financieros.num_cuenta IS NULL AND query.num_cuenta IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_cuenta IS NOT NULL AND query.num_cuenta IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.fecha_operacion<>query.fecha_operacion OR (tbn1_mi_ds_198_activos_financieros.fecha_operacion IS NULL AND query.fecha_operacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.fecha_operacion IS NOT NULL AND query.fecha_operacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.mes_operacion<>query.mes_operacion OR (tbn1_mi_ds_198_activos_financieros.mes_operacion IS NULL AND query.mes_operacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.mes_operacion IS NOT NULL AND query.mes_operacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.anyo_operacion<>query.anyo_operacion OR (tbn1_mi_ds_198_activos_financieros.anyo_operacion IS NULL AND query.anyo_operacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.anyo_operacion IS NOT NULL AND query.anyo_operacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_identificacion_fondo<>query.cod_clave_identificacion_fondo OR (tbn1_mi_ds_198_activos_financieros.cod_clave_identificacion_fondo IS NULL AND query.cod_clave_identificacion_fondo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_identificacion_fondo IS NOT NULL AND query.cod_clave_identificacion_fondo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.emisor<>query.emisor OR (tbn1_mi_ds_198_activos_financieros.emisor IS NULL AND query.emisor IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.emisor IS NOT NULL AND query.emisor IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_origen<>query.cod_clave_origen OR (tbn1_mi_ds_198_activos_financieros.cod_clave_origen IS NULL AND query.cod_clave_origen IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_origen IS NOT NULL AND query.cod_clave_origen IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_operacion_198<>query.cod_clave_operacion_198 OR (tbn1_mi_ds_198_activos_financieros.cod_clave_operacion_198 IS NULL AND query.cod_clave_operacion_198 IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_operacion_198 IS NOT NULL AND query.cod_clave_operacion_198 IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_mercado<>query.cod_clave_mercado OR (tbn1_mi_ds_198_activos_financieros.cod_clave_mercado IS NULL AND query.cod_clave_mercado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_mercado IS NOT NULL AND query.cod_clave_mercado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.id_clave_representacion<>query.id_clave_representacion OR (tbn1_mi_ds_198_activos_financieros.id_clave_representacion IS NULL AND query.id_clave_representacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_clave_representacion IS NOT NULL AND query.id_clave_representacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_valor<>query.cod_clave_valor OR (tbn1_mi_ds_198_activos_financieros.cod_clave_valor IS NULL AND query.cod_clave_valor IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_valor IS NOT NULL AND query.cod_clave_valor IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.num_activos<>query.num_activos OR (tbn1_mi_ds_198_activos_financieros.num_activos IS NULL AND query.num_activos IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.num_activos IS NOT NULL AND query.num_activos IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.porc_participacion<>query.porc_participacion OR (tbn1_mi_ds_198_activos_financieros.porc_participacion IS NULL AND query.porc_participacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.porc_participacion IS NOT NULL AND query.porc_participacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_clave_declarado<>query.cod_clave_declarado OR (tbn1_mi_ds_198_activos_financieros.cod_clave_declarado IS NULL AND query.cod_clave_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_clave_declarado IS NOT NULL AND query.cod_clave_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.cod_relacion<>query.cod_relacion OR (tbn1_mi_ds_198_activos_financieros.cod_relacion IS NULL AND query.cod_relacion IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.cod_relacion IS NOT NULL AND query.cod_relacion IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_identificado_declarado<>query.es_identificado_declarado OR (tbn1_mi_ds_198_activos_financieros.es_identificado_declarado IS NULL AND query.es_identificado_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_identificado_declarado IS NOT NULL AND query.es_identificado_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.sw_identificado_declarado<>query.sw_identificado_declarado OR (tbn1_mi_ds_198_activos_financieros.sw_identificado_declarado IS NULL AND query.sw_identificado_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.sw_identificado_declarado IS NOT NULL AND query.sw_identificado_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.es_erroneo_declarado<>query.es_erroneo_declarado OR (tbn1_mi_ds_198_activos_financieros.es_erroneo_declarado IS NULL AND query.es_erroneo_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.es_erroneo_declarado IS NOT NULL AND query.es_erroneo_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.fecha_vcto_prestamo<>query.fecha_vcto_prestamo OR (tbn1_mi_ds_198_activos_financieros.fecha_vcto_prestamo IS NULL AND query.fecha_vcto_prestamo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.fecha_vcto_prestamo IS NOT NULL AND query.fecha_vcto_prestamo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.mes_vencimiento_prestamo<>query.mes_vencimiento_prestamo OR (tbn1_mi_ds_198_activos_financieros.mes_vencimiento_prestamo IS NULL AND query.mes_vencimiento_prestamo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.mes_vencimiento_prestamo IS NOT NULL AND query.mes_vencimiento_prestamo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.anyo_vencimiento_prestamo<>query.anyo_vencimiento_prestamo OR (tbn1_mi_ds_198_activos_financieros.anyo_vencimiento_prestamo IS NULL AND query.anyo_vencimiento_prestamo IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.anyo_vencimiento_prestamo IS NOT NULL AND query.anyo_vencimiento_prestamo IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.importe<>query.importe OR (tbn1_mi_ds_198_activos_financieros.importe IS NULL AND query.importe IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.importe IS NOT NULL AND query.importe IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarado<>query.id_mae_no_id_declarado OR (tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarado IS NULL AND query.id_mae_no_id_declarado IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarado IS NOT NULL AND query.id_mae_no_id_declarado IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarante<>query.id_mae_no_id_declarante OR (tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarante IS NULL AND query.id_mae_no_id_declarante IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.id_mae_no_id_declarante IS NOT NULL AND query.id_mae_no_id_declarante IS NULL)
+			OR tbn1_mi_ds_198_activos_financieros.fecha_carga<>query.fecha_carga OR (tbn1_mi_ds_198_activos_financieros.fecha_carga IS NULL AND query.fecha_carga IS NOT NULL) OR (tbn1_mi_ds_198_activos_financieros.fecha_carga IS NOT NULL AND query.fecha_carga IS NULL) OR (fec_baja IS NOT NULL))) THEN
+		UPDATE SET
+			fec_modificacion=getdate(),
+			fec_baja=null,
+			id_expediente=query.id_expediente,
+			ejercicio=query.ejercicio,
+			referencia=query.referencia,
+			modelo=query.modelo,
+			nif_declarante_198_11=query.nif_declarante_198_11,
+			nif_declarado_198_11=query.nif_declarado_198_11,
+			nif_declarante_no_identificado_11=query.nif_declarante_no_identificado_11,
+			nif_declarado_no_identificado_11=query.nif_declarado_no_identificado_11,
+			nif_declarante_198=query.nif_declarante_198,
+			nif_declarado_198=query.nif_declarado_198,
+			nif_declarante_no_identificado=query.nif_declarante_no_identificado,
+			nif_declarado_no_identificado=query.nif_declarado_no_identificado,
+			es_contribuyente_declarante=query.es_contribuyente_declarante,
+			es_externo=query.es_externo,
+			id_contribuyente_declarante=query.id_contribuyente_declarante,
+			es_contribuyente_declarado=query.es_contribuyente_declarado,
+			id_contribuyente_declarado=query.id_contribuyente_declarado,
+			delegacion_hacienda=query.delegacion_hacienda,
+			cod_administracion=query.cod_administracion,
+			telefono=query.telefono,
+			razon_social=query.razon_social,
+			cod_presentador_colectivo=query.cod_presentador_colectivo,
+			es_identificado_declarante=query.es_identificado_declarante,
+			sw_identificado_declarante=query.sw_identificado_declarante,
+			cod_entidad_gestora=query.cod_entidad_gestora,
+			cod_tipo_presentacion=query.cod_tipo_presentacion,
+			fecha_presentacion=query.fecha_presentacion,
+			mes_presentacion=query.mes_presentacion,
+			anyo_presentacion=query.anyo_presentacion,
+			num_caja=query.num_caja,
+			es_erroneo_declarante=query.es_erroneo_declarante,
+			num_declarados_erroneos=query.num_declarados_erroneos,
+			hay_observaciones=query.hay_observaciones,
+			es_historico=query.es_historico,
+			fecha_alta=query.fecha_alta,
+			volumen_operaciones=query.volumen_operaciones,
+			num_justificante=query.num_justificante,
+			cod_tipo_declaracion=query.cod_tipo_declaracion,
+			num_justificante_sustitutiva=query.num_justificante_sustitutiva,
+			contador_revisiones=query.contador_revisiones,
+			es_representante=query.es_representante,
+			cod_provincia=query.cod_provincia,
+			cod_pais=query.cod_pais,
+			num_perceptores=query.num_perceptores,
+			nro_orden=query.nro_orden,
+			cod_tipo_codigo=query.cod_tipo_codigo,
+			banco=query.banco,
+			sucursal=query.sucursal,
+			num_cuenta=query.num_cuenta,
+			fecha_operacion=query.fecha_operacion,
+			mes_operacion=query.mes_operacion,
+			anyo_operacion=query.anyo_operacion,
+			cod_clave_identificacion_fondo=query.cod_clave_identificacion_fondo,
+			emisor=query.emisor,
+			cod_clave_origen=query.cod_clave_origen,
+			cod_clave_operacion_198=query.cod_clave_operacion_198,
+			cod_clave_mercado=query.cod_clave_mercado,
+			id_clave_representacion=query.id_clave_representacion,
+			cod_clave_valor=query.cod_clave_valor,
+			num_activos=query.num_activos,
+			porc_participacion=query.porc_participacion,
+			cod_clave_declarado=query.cod_clave_declarado,
+			cod_relacion=query.cod_relacion,
+			es_identificado_declarado=query.es_identificado_declarado,
+			sw_identificado_declarado=query.sw_identificado_declarado,
+			es_erroneo_declarado=query.es_erroneo_declarado,
+			fecha_vcto_prestamo=query.fecha_vcto_prestamo,
+			mes_vencimiento_prestamo=query.mes_vencimiento_prestamo,
+			anyo_vencimiento_prestamo=query.anyo_vencimiento_prestamo,
+			importe=query.importe,
+			id_mae_no_id_declarado=query.id_mae_no_id_declarado,
+			id_mae_no_id_declarante=query.id_mae_no_id_declarante,
+			fecha_carga=query.fecha_carga
+	WHEN NOT MATCHED THEN
+		INSERT (fec_alta,fec_modificacion,id_documento,id_expediente,ejercicio,referencia,secuencia,modelo,nif_declarante_198_11,nif_declarado_198_11,nif_declarante_no_identificado_11,nif_declarado_no_identificado_11,nif_declarante_198,nif_declarado_198,nif_declarante_no_identificado,nif_declarado_no_identificado,es_contribuyente_declarante,es_externo,id_contribuyente_declarante,es_contribuyente_declarado,id_contribuyente_declarado,delegacion_hacienda,cod_administracion,telefono,razon_social,cod_presentador_colectivo,es_identificado_declarante,sw_identificado_declarante,cod_entidad_gestora,cod_tipo_presentacion,fecha_presentacion,mes_presentacion,anyo_presentacion,num_caja,es_erroneo_declarante,num_declarados_erroneos,hay_observaciones,es_historico,fecha_alta,volumen_operaciones,num_justificante,cod_tipo_declaracion,num_justificante_sustitutiva,contador_revisiones,es_representante,cod_provincia,cod_pais,num_perceptores,nro_orden,cod_tipo_codigo,banco,sucursal,num_cuenta,fecha_operacion,mes_operacion,anyo_operacion,cod_clave_identificacion_fondo,emisor,cod_clave_origen,cod_clave_operacion_198,cod_clave_mercado,id_clave_representacion,cod_clave_valor,num_activos,porc_participacion,cod_clave_declarado,cod_relacion,es_identificado_declarado,sw_identificado_declarado,es_erroneo_declarado,fecha_vcto_prestamo,mes_vencimiento_prestamo,anyo_vencimiento_prestamo,cod_tipo_importe,importe,id_mae_no_id_declarado,id_mae_no_id_declarante,fecha_carga) VALUES (
+			getdate(),
+			getdate(),
+			query.id_documento,
+			query.id_expediente,
+			query.ejercicio,
+			query.referencia,
+			query.secuencia,
+			query.modelo,
+			query.nif_declarante_198_11,
+			query.nif_declarado_198_11,
+			query.nif_declarante_no_identificado_11,
+			query.nif_declarado_no_identificado_11,
+			query.nif_declarante_198,
+			query.nif_declarado_198,
+			query.nif_declarante_no_identificado,
+			query.nif_declarado_no_identificado,
+			query.es_contribuyente_declarante,
+			query.es_externo,
+			query.id_contribuyente_declarante,
+			query.es_contribuyente_declarado,
+			query.id_contribuyente_declarado,
+			query.delegacion_hacienda,
+			query.cod_administracion,
+			query.telefono,
+			query.razon_social,
+			query.cod_presentador_colectivo,
+			query.es_identificado_declarante,
+			query.sw_identificado_declarante,
+			query.cod_entidad_gestora,
+			query.cod_tipo_presentacion,
+			query.fecha_presentacion,
+			query.mes_presentacion,
+			query.anyo_presentacion,
+			query.num_caja,
+			query.es_erroneo_declarante,
+			query.num_declarados_erroneos,
+			query.hay_observaciones,
+			query.es_historico,
+			query.fecha_alta,
+			query.volumen_operaciones,
+			query.num_justificante,
+			query.cod_tipo_declaracion,
+			query.num_justificante_sustitutiva,
+			query.contador_revisiones,
+			query.es_representante,
+			query.cod_provincia,
+			query.cod_pais,
+			query.num_perceptores,
+			query.nro_orden,
+			query.cod_tipo_codigo,
+			query.banco,
+			query.sucursal,
+			query.num_cuenta,
+			query.fecha_operacion,
+			query.mes_operacion,
+			query.anyo_operacion,
+			query.cod_clave_identificacion_fondo,
+			query.emisor,
+			query.cod_clave_origen,
+			query.cod_clave_operacion_198,
+			query.cod_clave_mercado,
+			query.id_clave_representacion,
+			query.cod_clave_valor,
+			query.num_activos,
+			query.porc_participacion,
+			query.cod_clave_declarado,
+			query.cod_relacion,
+			query.es_identificado_declarado,
+			query.sw_identificado_declarado,
+			query.es_erroneo_declarado,
+			query.fecha_vcto_prestamo,
+			query.mes_vencimiento_prestamo,
+			query.anyo_vencimiento_prestamo,
+			query.cod_tipo_importe,
+			query.importe,
+			query.id_mae_no_id_declarado,
+			query.id_mae_no_id_declarante,
+			query.fecha_carga
+			)
+	WHEN NOT MATCHED BY SOURCE AND (fec_baja IS NULL) THEN
+		UPDATE SET
+			fec_baja=getdate(),
+			fec_modificacion=getdate();
+	EXECUTE dbn1_stg_dhyf.dbo.spn1_finalizar_log @log,@@ROWCOUNT;
+		END TRY
+	BEGIN CATCH
+		EXECUTE dbn1_stg_dhyf.dbo.spn1_finalizar_log @log,null;
+		UPDATE dbn1_norm_dhyf.audit.tbn1_logs SET
+			mensaje_error=error_message(),
+			procedimiento_error=error_procedure()
+		WHERE
+			id_log=@log;
+		IF @continuar_en_caso_error=0 OR @logpadre IS NULL THROW
+	END CATCH
+
+END
+
+GO

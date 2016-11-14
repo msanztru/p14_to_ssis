@@ -1,0 +1,4 @@
+#nombre;claves_caracteres_intervencion;
+#campo;tipo;es_clave
+cod_clave_caracter_intervencion;varchar(1);#
+clave_caracter_intervencion;varchar(50);

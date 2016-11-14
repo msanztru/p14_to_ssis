@@ -1,0 +1,2 @@
+cod_clave_pago;varchar(1);#
+clave_pago;varchar(40);

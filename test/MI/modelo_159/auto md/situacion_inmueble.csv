@@ -1,0 +1,4 @@
+#nombre;situacion_inmueble;
+#campo;tipo;es_clave
+cod_situacion_inmueble;varchar(1);#
+situacion_inmueble;varchar(150);

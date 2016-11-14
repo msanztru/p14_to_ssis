@@ -1,0 +1,3 @@
+cod_clave_bien_720;varchar(1);#
+cod_subclave_bien_720;varchar(1);#
+subclave_bien_720;varchar(200);

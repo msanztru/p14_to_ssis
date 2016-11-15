@@ -9,3 +9,5 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
+cambios_para_ssis_solo_cabecera.sql
+cambios_para_ssis_solo_pie.sql

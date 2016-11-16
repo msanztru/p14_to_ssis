@@ -1,0 +1,15 @@
+//cmd a C:\p14_to_ssis
+
+//generar el jar en C:\p14_to_ssis\target
+lein uberjar
+
+//para ejecutar (copiar cabecera y pie en la carpeta del proyecto)
+lein run "carpeta_con_los_sql"
+
+//lanzar el jar (Se genera un subdirectortio /_ssis con los nuevos archivos)
+java -jar p14_to_ssis.jar "ruta_con_los_sql"
+
+
+No hay control de errores. El script espera la misma estructura siempre.
+Por ejemplo lo he ejecutado para probar en una copia de la carpeta de MI y en el script Script cargar_normalizado_modelo_347.sql casca.
+El motivo es que hay uno de los SPs en los que el valor de la variable @procedure_name no coincide con el nombre del SP.

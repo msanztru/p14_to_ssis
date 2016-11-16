@@ -61,7 +61,7 @@
   (let
       [matcher-foot
        (re-matcher
-        #"(?i)execute\s+dbn1_stg_dhyf.dbo.spn1_finalizar_log([\s\S]*?)\send\s+catch"
+        #"(?i)\t*exec\w*\s+dbn1_stg_dhyf.dbo.spn1_finalizar_log([\s\S]*?)\send\s+catch"
         in)]
     (loop [foot (get-foot matcher-foot) out in]
       (if (nil? foot)
@@ -82,8 +82,8 @@
 
 (defn proc-dir [d]
   (println "Procesando direcorio" d)
-  (.mkdir (File. (str (.getPath (File. d)) "/ssis/")))
-  (let [td (File. (str (.getPath (File. d)) "/ssis/"))]
+  (.mkdir (File. (str (.getPath (File. d)) "/_ssis/")))
+  (let [td (File. (str (.getPath (File. d)) "/_ssis/"))]
     (doseq [f (.listFiles (File. d))]
       (if (and (nil? (re-find #"(?i)_query.sql" (.getName f)))
                (= "sql" (last (re-find #"(?i)[.](.*)" (.getName f)))))

@@ -85,7 +85,8 @@
   (.mkdir (File. (str (.getPath (File. d)) "/ssis/")))
   (let [td (File. (str (.getPath (File. d)) "/ssis/"))]
     (doseq [f (.listFiles (File. d))]
-      (if (= "sql" (last (re-find #"(?i)[.](.*)" (.getName f))))
+      (if (and (nil? (re-find #"(?i)_query.sql" (.getName f)))
+               (= "sql" (last (re-find #"(?i)[.](.*)" (.getName f)))))
         (let [sf (.getName f)]
           (println "Procesando fichero" sf)
           (process-file td sf (slurp f)))))))

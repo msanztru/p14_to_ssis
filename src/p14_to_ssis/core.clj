@@ -40,7 +40,8 @@
 
 (defn new-foot [of]
   (str/replace nfoot "spvarxxx"
-               (if (re-find #"@rc" of) "@rc" "@@ROWCOUNT")))
+               "@rc"))
+;;               (if (re-find #"@rc" of) "@rc" "@@ROWCOUNT")))
 
 (defn replace-head [m-in]
   (let [in (:out m-in)

@@ -7,17 +7,15 @@
 //generar el jar en C:\p14_to_ssis\target
 lein uberjar
 
-//para ejecutar (copiar cabecera y pie en la carpeta del proyecto)
-lein run "carpeta_con_los_sql"
-
-
-
 -----------------------------
 --PARA LANZAR EL YENEREITOR--
 -----------------------------
 
 //ir a C:\p14_to_ssis\target\uberjar y lanzar el jar (genera un subdirectorio /_ssis en la ruta destino)
 java -jar p14_to_ssis.jar "ruta_con_los_sql"
+
+//Método alternativo (requiere copiar cabecera y pie en la ruta con los sql)
+lein run "carpeta_con_los_sql"
 
 -----------------------------------------------------------------------------------------------
 

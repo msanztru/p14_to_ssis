@@ -44,7 +44,7 @@
 
 		EXEC dbn1_norm_dhyf.audit.spn1_actualizar_log_correcto
 					@p_id = @id,
-					@p_num_registros = spvarxxx --@@ROWCOUNT o @rc
+					@p_num_registros = spvarxxx
 
 	END TRY
 

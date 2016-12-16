@@ -1,5 +1,8 @@
 
 --Inicio Pie--
+			--guardar el valor de @@ROWCOUNT si no lo habíamos hecho ya
+			IF @rc IS NULL SET @rc = @@ROWCOUNT
+
 			DECLARE @fecha_fin_ok_precondicion datetime = GETDATE()
 			EXEC dbn1_norm_dhyf.audit.spn1_actualizar_tbn1_precondiciones_carga_dwh
 					@p_estado_precondicion = 'OK',

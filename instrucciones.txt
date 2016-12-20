@@ -1,17 +1,17 @@
-----------------------------------------------------------------
---PARA GENERAR UN NUEVO JAR SI HE MODIFICADO EL CÓDIGO CLOJURE--
-----------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+--PARA GENERAR UN NUEVO JAR EN C:\p14_to_ssis\target SI HE MODIFICADO EL CÓDIGO CLOJURE--
+-----------------------------------------------------------------------------------------
 
-//cmd a C:\p14_to_ssis
-
-//generar el jar en C:\p14_to_ssis\target
+//desde cmd
+cd C:\p14_to_ssis
 lein uberjar
+copy C:\p14_to_ssis\*.sql C:\p14_to_ssis\target\uberjar
 
 -----------------------------
 --PARA LANZAR EL YENEREITOR--
 -----------------------------
 
-//ir a C:\p14_to_ssis\target\uberjar y lanzar el jar (genera un subdirectorio /_ssis en la ruta destino)
+cd C:\p14_to_ssis\target\uberjar
 java -jar p14_to_ssis.jar "ruta_con_los_sql"
 
 //Método alternativo (requiere copiar cabecera y pie en la ruta con los sql)

@@ -4,7 +4,7 @@
   (:require [clojure.string :as str]))
 
 (defn add-ssis [s]
-  (str s "_ssis"))
+  (str s ""))
 
 (def nhead (slurp "cambios_para_ssis_solo_cabecera.sql"))
 (def nfoot (slurp "cambios_para_ssis_solo_pie.sql"))
@@ -78,11 +78,12 @@
 
 (defn process-file [td sf cnt]
   (spit (str (.getPath td) "/"
-             (str/replace sf #".sql" "_ssis.sql"))
+             (str/replace sf #".sql" ".sql")
+			 )
         (rep-all cnt)))
 
 (defn proc-dir [d]
-  (println "Procesando direcorio" d)
+  (println "Procesando directorio" d)
   (.mkdir (File. (str (.getPath (File. d)) "/_ssis/")))
   (let [td (File. (str (.getPath (File. d)) "/_ssis/"))]
     (doseq [f (.listFiles (File. d))]
